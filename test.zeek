@@ -28,8 +28,8 @@ event zeek_init()
                       $epoch_result(ts: time, key: SumStats::Key, result: SumStats::Result)=
                       {
                           local s1 = result["404"];
-						              local s2 = result["Unique_Url"];
-						              local s3 = result["response"];
+			  local s2 = result["Unique_Url"];
+			  local s3 = result["response"];
                           if(s1$sum > 2 && 1.0*s1$sum / s3$sum > 0.2 && 1.0*s2$unique / s1$sum>0.5)
                               print fmt("%s is a scanner with %d scan attemps on %d urls",key$host,s1$sum,s2$unique);                         
                       }]);
